@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "941270391837",
+    "firebase_url": "https://budget-management-app.firebaseio.com",
+    "project_id": "budget-management-app",
+    "storage_bucket": "budget-management-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941270391837:android:57e74ec34c441e24",
+        "android_client_info": {
+          "package_name": "com.github.malib.budgetmanagementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941270391837-q721tijcefu5107rf0702ivrjtc0t388.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.malib.budgetmanagementapp",
+            "certificate_hash": "0183b35dbaa6c7998ba148d392ac1312a24d5d77"
+          }
+        },
+        {
+          "client_id": "941270391837-5u6fpk355nde93743b8avkjspinrls59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnm_HsblvbONjSk_tlrX9D1zgIuZZmA3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941270391837-5u6fpk355nde93743b8avkjspinrls59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
