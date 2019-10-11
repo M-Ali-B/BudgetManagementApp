@@ -87,7 +87,7 @@
         android:background="@color/colorPrimaryDark"
         android:text="Sign up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

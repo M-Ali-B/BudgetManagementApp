@@ -44,6 +44,13 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     FirebaseUser user;
 
+
+    String title;
+    String description;
+    String budget;
+    String post_key;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,16 +65,6 @@ public class HomeActivity extends AppCompatActivity {
         String userID = user.getUid();
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("AllData").child(userID);
-
-
-// mTextView = findViewById(R.id.textView4);
-// mTextView2 = findViewById(R.id.textView5);
-// mTextView3 = findViewById(R.id.textView6);
-//
-//
-//
-// mTextView.setText(user.getUid());
-// mTextView3.setText(user.getEmail());
 
 
         mFloatingActionButton = findViewById(R.id.fab_add);
@@ -90,6 +87,7 @@ public class HomeActivity extends AppCompatActivity {
                 addData();
             }
         });
+
 
     }
 
@@ -194,12 +192,26 @@ public class HomeActivity extends AppCompatActivity {
 
 
             @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i, @NonNull MyData myData) {
+            protected void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i, @NonNull final MyData myData) {
                 myViewHolder.setTitle(myData.getTitle());
                 myViewHolder.setDescription(myData.getDescription());
                 myViewHolder.setBudget(myData.getBudget());
                 myViewHolder.setDate(myData.getDate());
-//
+
+
+                myViewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        post_key = getRef(i).getKey();
+                        title = myData.getTitle();
+                        description = myData.getDescription();
+                        budget = myData.getBudget();
+
+                        updateData();
+                    }
+                });
+
             }
 
             @NonNull
@@ -213,7 +225,76 @@ public class HomeActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(adapter);
         adapter.startListening();
 
-//
+
+    }
+
+    public void updateData() {
+
+        AlertDialog.Builder mydialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View myView = inflater.inflate(R.layout.updatedataitem, null);
+        mydialog.setView(myView);
+
+        final AlertDialog dialog = mydialog.create();
+
+
+        // creating link to the field
+
+
+        final EditText mtitle = myView.findViewById(R.id.title_update);
+        final EditText mdescription = myView.findViewById(R.id.description_update);
+        final EditText mbudget = myView.findViewById(R.id.budget_update);
+        Button saveBtn = myView.findViewById(R.id.update);
+        Button deleteBtn = myView.findViewById(R.id.cancel);
+
+
+        // we have to send data from server to our form
+
+        mtitle.setText(title);
+        mtitle.setSelection(title.length());
+
+        mbudget.setText(budget);
+        mbudget.setSelection(budget.length());
+
+        mdescription.setText(description);
+        mdescription.setSelection(description.length());
+
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                title = mtitle.getText().toString();
+                description = mdescription.getText().toString();
+                budget = mbudget.getText().toString();
+
+
+                String mDate = DateFormat.getDateInstance().format(new Date());
+
+                MyData data = new MyData(title, description, budget, post_key, mDate);
+                mDatabase.child(post_key).setValue(data);
+
+
+                dialog.dismiss();
+
+            }
+        });
+
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mDatabase.child(post_key).removeValue();
+
+                dialog.dismiss();
+
+            }
+        });
+
+
+        dialog.show();
+
+
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

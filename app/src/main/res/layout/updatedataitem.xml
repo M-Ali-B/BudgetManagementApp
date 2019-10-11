@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    >
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add the Data"
+        android:text="Update the Data"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         />
@@ -38,11 +37,11 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             >
 
             <EditText
-                android:id="@+id/title"
+                android:id="@+id/title_update"
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content" />
@@ -79,7 +78,7 @@
             >
 
             <EditText
-                android:id="@+id/description"
+                android:id="@+id/description_update"
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content" />
@@ -116,7 +115,7 @@
             >
 
             <EditText
-                android:id="@+id/budget"
+                android:id="@+id/budget_update"
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content" />
@@ -126,19 +125,30 @@
 
     </LinearLayout>
 
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        >
+        android:layout_height="wrap_content">
+
+
         <Button
-            android:id="@+id/submit_button"
+            android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
-            />
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:text="Delete" />
 
-    </LinearLayout>
+<Button
+    android:id="@+id/update"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="50dp"
+    android:text="Update"
+    />
+    </RelativeLayout>
+
 
 
 </LinearLayout>
