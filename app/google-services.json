@@ -15,16 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "941270391837-q721tijcefu5107rf0702ivrjtc0t388.apps.googleusercontent.com",
+          "client_id": "941270391837-324retglsr200r10sqv6gj06r66jq825.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.github.malib.budgetmanagementapp",
             "certificate_hash": "0183b35dbaa6c7998ba148d392ac1312a24d5d77"
           }
-        },
-        {
-          "client_id": "941270391837-5u6fpk355nde93743b8avkjspinrls59.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -34,12 +30,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "941270391837-5u6fpk355nde93743b8avkjspinrls59.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
